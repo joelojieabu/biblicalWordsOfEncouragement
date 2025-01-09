@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Words of Encouragement</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f8f9fa;
+      }
+
+      .card {
+        background-color: #faefef;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        color: #666;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      input {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        outline: none;
+      }
+
+      button {
+        background-color: rgb(246, 51, 51);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: rgb(250, 147, 147);
+      }
+
+      #message {
+        margin-top: 1.5rem;
+        color: #444;
+        font-size: 1.1rem;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      #message.visible {
+        opacity: 1;
+      }
+
+      .heart {
+        color: #ff4d6d;
+        display: inline-block;
+        animation: beat 1s infinite;
+      }
+
+      @keyframes beat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="../cci-image.jpg" style="width: 20%; height: auto; min-width: 6rem" />
+      <h2> Happy New Year, Church Bestie..
+ Church Bestie! 🥰</h2>
+      <p class="subtitle">
+        Tiara from "CCI Egbeda" here, kindly insert your name below to receive a
+        special love note from God🤗
+      </p>
+      <input type="text" id="nameInput" placeholder="Enter your name here" />
+      <button onclick="showMessage()">Show My Message</button>
+      <p id="message"></p>
+    </div>
+
+    <script>
+      const messages = [
+        "Beloved, My help is on the way. Isaiah 51:5",
+        "Precious One, You belong to Me. When you go through deep waters, I will be right there with you. Isaiah 43:1-2",
+        "Dearest One, My Spirit is with you always. Isaiah 11:2",
+        "Precious Child, I have written your name on My hands. You are always in My thoughts. Isaiah 49:16",
+        "My Child, I go before you and behind you. I am holding you with My hand. Psalm 139:5",
+        "Beloved, I am the One who makes all things new. Trust that I am working in your life. Revelation 21:5",
+        "Beloved, You are never alone. I am with you wherever you go. Joshua 1:9",
+        "My Child, I know every detail of your life. I have numbered even the hairs on your head. Matthew 10:30",
+        "Beloved, I know your heart and hear your cries. I am near, comforting you always. Psalm 34:18",
+        "My Precious One, I am your God who takes hold of your right hand and says, 'Do not fear; I will help you.' Isaiah 41:13",
+        "My Dearest Child, I am with you in every trial and every joy. You are never out of My sight. Psalm 139:7-10",
+        "My Child, When you call on Me, I will answer; when you seek Me, you will find Me. Jeremiah 33:3",
+        "Beloved, I am your peace; let not your heart be troubled or afraid. John 14:27",
+        "Dear One, I, The Lord who see you, will restore to you the years that the locust has eaten. Joel 2:25",
+        "My Child, Though you walk through valleys, fear no evil, for I am with you always. Psalm 23:4",
+        "Precious One, I am your shepherd; with Me, you lack nothing. Psalm 23:1-2",
+        "Beloved, You are never alone. Hebrews 13:5",
+        "Dearest Child, The mountains may skip like lambs, and the hills be removed, but My love shall not depart from you. Isaiah 54:10",
+        "Beloved, Be strong and courageous. Do not be afraid, for I go with you wherever you go. Joshua 1:9",
+        "My Dear, I know the plans I have for you, plans to prosper you and not to harm you, plans to give you hope and a future. Jeremiah 29:11",
+        "My beloved, you are wonderfully made, and I see every detail of your heart and soul. You are precious to me. Psalm 139:14",
+        "Even in your struggles, my love for you remains steadfast. There is nothing that can separate us. Romans 8:38-39",
+        "Trust in my love, for I hold your heart in my hands. Share with me your fears and joys. Psalm 55:22",
+        "Your laughter brings me joy, and your smiles light up my heart. You are a treasure to me. Zephaniah 3:17",
+        "In your trials, I am molding you into something beautiful. Trust that I am at work in you. Romans 8:28",
+        "Just as an artist pours love into their creation, I have crafted you with purpose and beauty. Ephesians 2:10",
+        "I placed dreams in your heart for a reason. Pursue them with courage, and I will be with you. Jeremiah 29:11",
+      ];
+
+      function showMessage() {
+        const nameInput = document.getElementById("nameInput");
+        const messageElement = document.getElementById("message");
+        const name = nameInput.value.trim();
+
+        if (name === "") {
+          alert("Please enter your name");
+          return;
+        }
+
+        const randomMessage =
+          messages[Math.floor(Math.random() * messages.length)];
+        messageElement.innerHTML = `${name}, ${randomMessage} <span class="heart">❤</span>`;
+        messageElement.classList.add("visible");
+      }
+
+      // Allow Enter key to trigger the button
+      document
+        .getElementById("nameInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            showMessage();
+          }
+        });
+    </script>
+  </body>
+</html>
