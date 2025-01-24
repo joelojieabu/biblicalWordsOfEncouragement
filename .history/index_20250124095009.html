@@ -3,19 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>God's Love Note</title>
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Lato", serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
       }
 
       body {
@@ -44,7 +42,6 @@
       h2 {
         color: #333;
         margin-bottom: 1rem;
-        margin-top: 1rem;
       }
 
       .subtitle {
@@ -71,42 +68,11 @@
         border-radius: 25px;
         cursor: pointer;
         font-size: 1rem;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
       }
 
       button:hover {
         background-color: rgb(250, 147, 147);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-      }
-
-      button:active {
-        transform: translateY(1px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        background-color: rgb(240, 80, 80);
-      }
-
-      button::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          120deg,
-          transparent,
-          rgba(255, 255, 255, 0.3),
-          transparent
-        );
-        transition: all 0.6s;
-      }
-
-      button:hover::before {
-        left: 100%;
       }
 
       #message {
@@ -151,7 +117,7 @@
     <div class="card">
       <img
         src="../cci-image.png"
-        style="width: 30%; height: auto; min-width: 9rem"
+        style="width: 20%; height: auto; min-width: 6rem"
       />
       <h2>Happy New Year, Church Bestie..🥰</h2>
       <p class="subtitle">
@@ -162,7 +128,9 @@
       <button onclick="showMessage()">Show My Message</button>
       <p id="message"></p>
       <p class="footer">
-        <b>Powered by CCI Egbeda Comms Unit</b>
+        <b
+          >Powered by CCI Egbeda Comms Unit</b
+        >
       </p>
     </div>
 
